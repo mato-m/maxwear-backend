@@ -1,6 +1,12 @@
 const express = require("express");
+const addColor = require("../controllers/color/addColor");
+const deleteColor = require("../controllers/color/deleteColor");
+const editColorHex = require("../controllers/color/editColorHex");
+const editColorName = require("../controllers/color/editColorName");
+const getAllColors = require("../controllers/color/getAllColors");
 const colorRouter = express.Router();
-colorRouter.get("/", (req, res) => {
-  res.send("hello world");
-});
+colorRouter.route("/").get(getAllColors).post(addColor);
+colorRouter.route("/:color_id").delete(deleteColor);
+colorRouter.route("/:color_id/name").put(editColorName);
+colorRouter.route("/:color_id/hex").put(editColorHex);
 module.exports = colorRouter;
