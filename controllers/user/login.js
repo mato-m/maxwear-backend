@@ -4,7 +4,7 @@ const bcrypt = require("bcrypt");
 const login = async (req, res) => {
   try {
     const result =
-      await connection`select appuser_id, appuser_fname, appuser_lname,appuser_mail, appuser_hash from maxwear_schema.appuser where appuser_mail=${req.body.mail}`;
+      await connection`select * from maxwear_schema.appuser where appuser_mail=${req.body.mail}`;
     const isPasswordOkay = await bcrypt.compare(
       req.body.pass,
       result[0].appuser_hash
@@ -16,6 +16,7 @@ const login = async (req, res) => {
           fname: result[0].appuser_fname,
           lname: result[0].appuser_lname,
           mail: result[0].appuser_mail,
+          role: result[0].appuser_role,
         },
         process.env.JWT_SECRET
       );

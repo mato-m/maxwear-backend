@@ -1,0 +1,17 @@
+const express = require("express");
+const addItem = require("../controllers/item/addItem");
+const deleteItem = require("../controllers/item/deleteItem");
+const getAllItems = require("../controllers/item/getAllItems");
+const getDiscountedItems = require("../controllers/item/getDiscountedItems");
+const getItemsBrand = require("../controllers/item/getItemsBrand");
+const getItemsCategory = require("../controllers/item/getItemsCategory");
+const getItemsColor = require("../controllers/item/getItemsColor");
+const itemRouter = express.Router();
+itemRouter.post("/", addItem);
+itemRouter.get("/", getAllItems);
+itemRouter.get("/discounted", getDiscountedItems);
+itemRouter.get("/brand/:brand_id", getItemsBrand);
+itemRouter.get("/color/:color_id", getItemsColor);
+itemRouter.get("/category/:category_id", getItemsCategory);
+itemRouter.delete("/:item_id", deleteItem);
+module.exports = itemRouter;

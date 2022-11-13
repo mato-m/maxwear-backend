@@ -17,6 +17,7 @@ const register = (req, res) => {
             fname: req.body.fname,
             lname: req.body.lname,
             mail: req.body.mail,
+            role: 0,
           },
           process.env.JWT_SECRET
         );
