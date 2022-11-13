@@ -2,7 +2,7 @@ const connection = require("../../dbConfig");
 const uuid = require("uuid");
 const addColor = async (req, res) => {
   try {
-    await connection`insert into maxwear_schema.color (color,color_name,color_hex) values (${uuid.v4()},${
+    await connection`insert into maxwear_schema.color (color_id,color_name,color_hex) values (${uuid.v4()},${
       req.body.color_name
     },${req.body.color_hex}
     })`;
