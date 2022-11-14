@@ -4,6 +4,7 @@ const brandRouter = require("./routers/brandRouter");
 const categoryRouter = require("./routers/categoryRouter");
 const colorRouter = require("./routers/colorRouter");
 const itemRouter = require("./routers/itemRouter");
+const reviewRouter = require("./routers/reviewRouter");
 const userRouter = require("./routers/userRouter");
 app = express();
 app.use(express.json());
@@ -13,6 +14,7 @@ app.use("/categories", categoryRouter);
 app.use("/colors", colorRouter);
 app.use("/users", userRouter);
 app.use("/items", itemRouter);
+app.use("/reviews", reviewRouter);
 app.listen(process.env.PORT, () => {
   console.log("Server started on port " + process.env.PORT);
 });

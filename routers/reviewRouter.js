@@ -1,0 +1,10 @@
+const express = require("express");
+const addReview = require("../controllers/review/addReview");
+const deleteReview = require("../controllers/review/deleteReview");
+const editReview = require("../controllers/review/editReview");
+const seeItemReviews = require("../controllers/review/seeItemReviews");
+const reviewRouter = express.Router();
+reviewRouter.get("/:item_id", seeItemReviews);
+reviewRouter.post("/", addReview);
+reviewRouter.route("/:review_id").delete(deleteReview).put(editReview);
+module.exports = reviewRouter;
