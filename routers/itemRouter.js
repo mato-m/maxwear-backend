@@ -37,5 +37,5 @@ itemRouter.put("/brand/:item_id", editItemBrand);
 itemRouter.put("/quantity/:item_id", editItemQuantity);
 itemRouter.get("/sizes", seeAllSizes);
 itemRouter.post("/sizes", addItemSize);
-itemRouter.delete("/sizes/:item_id", deleteSize);
+itemRouter.delete("/sizes/:itemsize_id", deleteSize);
 module.exports = itemRouter;
