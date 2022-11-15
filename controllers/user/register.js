@@ -11,6 +11,7 @@ const register = (req, res) => {
     } else
       try {
         await connection`insert into maxwear_schema.appuser (appuser_id,appuser_fname,appuser_lname,appuser_mail,appuser_hash) values (${userID},${req.body.fname},${req.body.lname},${req.body.mail},${hash})`;
+        await connection`insert into maxwear_schema.cart (cart_id,user_id) values (${uuid.v4()},${userID})`;
         const token = jwt.sign(
           {
             userID,

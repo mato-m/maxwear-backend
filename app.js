@@ -1,6 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const brandRouter = require("./routers/brandRouter");
+const cartRouter = require("./routers/cartRouter");
 const categoryRouter = require("./routers/categoryRouter");
 const colorRouter = require("./routers/colorRouter");
 const itemRouter = require("./routers/itemRouter");
@@ -15,6 +16,7 @@ app.use("/colors", colorRouter);
 app.use("/users", userRouter);
 app.use("/items", itemRouter);
 app.use("/reviews", reviewRouter);
+app.use("/carts", cartRouter);
 app.listen(process.env.PORT, () => {
   console.log("Server started on port " + process.env.PORT);
 });
